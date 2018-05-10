@@ -6,16 +6,15 @@ api.setup = (User) => (req, res) => {
     username: 'admin',
     password: 'admin'
   });
-admin.save(error => {
+  admin.save(error => {
     if (error) throw error;
-console.log('Admin account was succesfully set up');
+    console.log('Admin account was succesfully set up');
     res.json({ success: true });
   })
 }
 
 api.index = (User, BudgetToken) => (req, res) => {
   const token = BudgetToken;
-  console.log(token)
 if (token) {
     User.find({}, (error, users) => {
       if (error) throw error;
